@@ -1,0 +1,245 @@
+/* Definindo cores principais como variáveis */
+:root {
+  --primary-color: #333;
+  --secondary-color: #0077cc;
+}
+
+/* Estilo padrão para links */
+a {
+  color: var(--primary-color) !important;
+  text-decoration: none !important;
+  transition: 0.3s;
+}
+
+/* Efeito de opacidade no hover */
+a:hover {
+  opacity: 0.7;
+}
+
+/* Estilo para a logo */
+.logo,
+h2,
+#contato h2 {
+  color: var(--primary-color);
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+/* Estilo para a barra de navegação */
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #f8f8f8;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  height: 8vh;
+}
+
+/* Contêiner de navegação com padding */
+.nav-container {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+/* Lista de navegação */
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+
+/* Estilo para itens da lista de navegação */
+.nav-list li {
+  padding: 2px 8px;
+  letter-spacing: 2px;
+  margin-left: 32px;
+  margin-top: 20px;
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+}
+
+/* Ícones do menu móvel */
+.mobile-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.mobile-menu div {
+  width: 32px;
+  height: 2px;
+  background: #333;
+  margin: 8px;
+  transition: 0.3s;
+}
+
+/* Animações para o ícone do menu móvel ativo */
+.mobile-menu.active .line1 {
+  transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.mobile-menu.active .line2 {
+  opacity: 0;
+}
+
+.mobile-menu.active .line3 {
+  transform: rotate(45deg) translate(-5px, -7px);
+}
+
+/* Estilos Gerais */
+h2 {
+  font-size: 80px;
+}
+
+h3 {
+  font-size: 0.3em;
+  font-weight: 500;
+}
+
+p {
+  font-weight: 300;
+  padding: 20px;
+  font-weight: 400;
+}
+
+.container-grid {
+  padding-left: 10% !important;
+  padding-right: 10% !important;
+}
+
+/* Seção Início */
+#inicio {
+  text-align: center;
+  padding: 10%;
+}
+
+.info-container {
+  display: flex;
+  margin: 10px;
+  padding: 10px 0;
+  align-items: center;
+}
+
+.person-info {
+  text-align: left;
+}
+
+.person-image {
+  margin: 0 20px;
+  border-radius: 50%;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+}
+
+/* Navegação Feed */
+.nav-feed {
+  border-bottom: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 15px;
+  
+}
+
+.nav-link {
+  color: var(--primary-color) !important;
+  background-color: #fafafa !important;
+  border-color: #fff #fff #fff !important;
+  border-top-right-radius: .0rem !important;
+  border-top-left-radius: .0rem !important;
+  font-size: 20px;
+  font-weight: 400;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link:hover {
+  border-color: gray #fff #fff !important;
+}
+
+/* Seção Fotos */
+#fotos h2 {
+  padding: 100px 0;
+  text-align: center;
+}
+
+img {
+  box-shadow: 0 1px 2px #0003;
+  width: 100%;
+}
+
+.swiper {
+  height: 500px;
+}
+
+.swiper-slide {
+  text-align: center;
+}
+
+.swiper-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Ou "cover", dependendo do resultado desejado */
+  display: block; /* Garante que a imagem não tenha espaços indesejados abaixo */
+  margin: 0 auto; /* Centraliza a imagem horizontalmente */
+  height: auto; /* Alterado para 'auto' para evitar rolagem vertical */
+  max-height: 100vh; /* Define uma altura máxima igual à altura da tela */
+  text-align: center;
+}
+
+/* Seção Contato */
+#contato {
+  padding: 50px;
+  text-align: center;
+  background-color: #f8f8f8;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+#contato p {
+  color: #555;
+}
+
+#contato ul {
+  list-style-type: none;
+  padding: 10px;
+  font-size: 20px;
+}
+
+#contato ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+#contato ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 3px solid transparent;
+  padding: 10px 20px;
+  transition: border-bottom 0.2s ease, background-color 0.4s ease, color 0.3s ease;
+}
+
+#contato ul li a:hover {
+  border-bottom: 3px solid var(--secondary-color);
+  background-color: #333;
+  color: var(--secondary-color) !important;
+  border-radius: 20px;
+}
+
+#contato p:last-of-type {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  padding: 8px 0;
+  background-color: #f8f8f8;
+  color: var(--primary-color);
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}

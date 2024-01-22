@@ -1,0 +1,127 @@
+/* Estilos para telas menores */
+@media (max-width: 999px) {
+    body {
+      overflow-x: hidden;
+    }
+  
+    /* Ajustes na lista de navegação para telas menores */
+    .nav-list {
+      position: absolute;
+      top: 8vh;
+      right: 0;
+      width: 50vw;
+      height: 92vh;
+      background: #f8f8f8;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+  
+    .nav-list li {
+      margin-left: 0;
+      opacity: 0;
+    }
+  
+    /* Mostra o ícone do menu móvel */
+    .mobile-menu {
+      display: block;
+    }
+  
+    /* Animação de fade para os itens da lista de navegação */
+    @keyframes navLinkFade {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+  
+  /* Responsividade para larguras de tela até 600px */
+  @media screen and (max-width: 600px) {
+    nav ul {
+      display: none;
+    }
+  
+    .logo img {
+      max-height: 10px;
+    }
+  
+    .scrollable {
+      max-height: 100px;
+      overflow-y: auto;
+    }
+  
+    .person-image {
+      display: none;
+    }
+  
+    /* Adicione outras regras específicas para telas até 600px, se necessário */
+  }
+  
+  /* Responsividade para larguras de tela entre 601px e 1440px */
+  @media screen and (min-width: 601px) and (max-width: 1440px) {
+    h2 {
+      font-size: 30px;
+      padding: 10px;
+    }
+  
+    h3 {
+      font-size: 100px;
+      padding: 0;
+      font-weight: 400;
+    }
+  
+    p {
+      padding: 20px;
+    }
+  
+    #inicio {
+      padding: 20px 10px;
+    }
+  
+    .info-container {
+      margin: 10px;
+    }
+  
+    .person-image {
+      max-width: 150px;
+      max-height: 150px;
+      margin: 0 10px;
+    }
+  
+    .scrollable {
+      max-height: 80px;
+    }
+  
+    /* Adicione outras regras específicas para telas entre 601px e 1440px, se necessário */
+  }
+  
+  /* Responsividade para larguras de tela até 450px */
+  @media (max-width: 450px) {
+    .swiper {
+      height: 270px;
+    }
+  
+    /* Adicione outras regras específicas para telas até 450px, se necessário */
+  }
+  
+  /* Animações para o ícone do menu móvel ativo */
+  .mobile-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+  }
+  
+  .mobile-menu.active .line2 {
+    opacity: 0;
+  }
+  
+  .mobile-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+  }
+  
