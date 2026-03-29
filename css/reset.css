@@ -1,7 +1,371 @@
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+/* ===== MODERN CSS RESET & NORMALIZATION ===== */
+/* Based on modern reset patterns for 2024+ browsers */
+
+/* ===== UNIVERSAL RESET ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== ROOT & HTML ===== */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px; /* Account for sticky header */
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling on orientation change */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ===== BODY ===== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+  line-height: 1.6;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+/* ===== TYPOGRAPHY RESET ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== LINKS ===== */
+a {
+  color: inherit;
+  text-decoration: none;
+  background-color: transparent;
+  transition: color 0.3s ease;
+}
+
+a:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ===== LISTS ===== */
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+/* ===== IMAGES ===== */
+img,
+picture,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+img {
+  border-style: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+/* ===== FORM ELEMENTS ===== */
+form {
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input,
+textarea,
+select {
+  border: none;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+textarea {
+  resize: vertical;
+  font-family: inherit;
+}
+
+/* ===== TABLE ELEMENTS ===== */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+td,
+th {
+  padding: 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* ===== BLOCKQUOTE & PREFORMATTED TEXT ===== */
+blockquote,
+pre {
+  margin: 0;
+  padding: 0;
+}
+
+pre {
+  overflow: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: 'Courier New', monospace;
+}
+
+/* ===== HR & SMALL ===== */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #e5e5e5;
+  margin: 0;
+  padding: 0;
+}
+
+small {
+  font-size: 0.8em;
+}
+
+/* ===== MARK & HIGHLIGHT ===== */
+mark {
+  background-color: #fff176;
+  color: inherit;
+}
+
+/* ===== STRONG & EMPHASIS ===== */
+strong {
+  font-weight: 700;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+/* ===== SVG ===== */
+svg {
+  display: block;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+svg:not([fill]) {
+  fill: currentColor;
+}
+
+/* ===== AUDIO & VIDEO ===== */
+audio,
+video {
+  display: block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/* ===== FIELDSET ===== */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0.5em;
+  border: 0;
+}
+
+/* ===== PROGRESS & METER ===== */
+progress {
+  vertical-align: baseline;
+}
+
+meter {
+  display: block;
+}
+
+/* ===== LABELS & DETAILS ===== */
+label {
+  cursor: pointer;
+}
+
+summary {
+  display: list-item;
+  cursor: pointer;
+}
+
+details > summary::-webkit-details-marker {
+  color: inherit;
+}
+
+/* ===== DIALOG ===== */
+dialog {
+  padding: 0;
+  border: solid;
+}
+
+dialog:backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ===== INTERACTIVE ELEMENTS ===== */
+[role='button'] {
+  cursor: pointer;
+}
+
+[disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background-color: #667eea;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: #667eea;
+  color: #ffffff;
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #764ba2;
+}
+
+/* ===== PLACEHOLDER TEXT ===== */
+::placeholder {
+  color: #999999;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #999999;
+}
+
+::-ms-input-placeholder {
+  color: #999999;
+}
+
+/* ===== WEBKIT SPECIFIC ===== */
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/* ===== IE FIXES ===== */
+[type='checkbox'],
+[type='radio'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* ===== ACCESSIBILITY ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Visible focus for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
 }
