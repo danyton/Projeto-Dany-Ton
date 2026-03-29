@@ -1,127 +1,462 @@
-/* Estilos para telas menores */
-@media (max-width: 999px) {
-    body {
-      overflow-x: hidden;
-    }
-  
-    /* Ajustes na lista de navegação para telas menores */
-    .nav-list {
-      position: absolute;
-      top: 8vh;
-      right: 0;
-      width: 50vw;
-      height: 92vh;
-      background: #f8f8f8;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
-      transform: translateX(100%);
-      transition: transform 0.3s ease-in;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    }
-  
-    .nav-list li {
-      margin-left: 0;
-      opacity: 0;
-    }
-  
-    /* Mostra o ícone do menu móvel */
-    .mobile-menu {
-      display: block;
-    }
-  
-    /* Animação de fade para os itens da lista de navegação */
-    @keyframes navLinkFade {
-      from {
-        opacity: 0;
-        transform: translateX(50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
+/* ===== RESPONSIVE DESIGN ===== */
+/* Mobile First Approach - Breakpoints: 576px (sm), 768px (md), 992px (lg), 1200px (xl) */
+
+body {
+  overflow-x: hidden;
+}
+
+/* ===== MOBILE STYLES (< 768px) ===== */
+@media screen and (max-width: 767px) {
+  /* Header & Navigation */
+  header {
+    padding: 0;
   }
-  
-  /* Responsividade para larguras de tela até 600px */
-  @media screen and (max-width: 600px) {
-    nav ul {
-      display: none;
-    }
-  
-    .logo img {
-      max-height: 10px;
-    }
-  
-    .scrollable {
-      max-height: 100px;
-      overflow-y: auto;
-    }
-  
-    .person-image {
-      display: none;
-    }
-  
-    /* Adicione outras regras específicas para telas até 600px, se necessário */
+
+  nav {
+    padding: 0 5%;
+    height: 60px;
   }
-  
-  /* Responsividade para larguras de tela entre 601px e 1440px */
-  @media screen and (min-width: 601px) and (max-width: 1440px) {
-    h2 {
-      font-size: 30px;
-      padding: 10px;
-    }
-  
-    h3 {
-      font-size: 100px;
-      padding: 0;
-      font-weight: 400;
-    }
-  
-    p {
-      padding: 20px;
-    }
-  
-    #inicio {
-      padding: 20px 10px;
-    }
-  
-    .info-container {
-      margin: 10px;
-    }
-  
-    .person-image {
-      max-width: 150px;
-      max-height: 150px;
-      margin: 0 10px;
-    }
-  
-    .scrollable {
-      max-height: 80px;
-    }
-  
-    /* Adicione outras regras específicas para telas entre 601px e 1440px, se necessário */
+
+  .logo {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
   }
-  
-  /* Responsividade para larguras de tela até 450px */
-  @media (max-width: 450px) {
-    .swiper {
-      height: 270px;
-    }
-  
-    /* Adicione outras regras específicas para telas até 450px, se necessário */
+
+  .mobile-menu {
+    display: flex !important;
   }
-  
-  /* Animações para o ícone do menu móvel ativo */
-  .mobile-menu.active .line1 {
-    transform: rotate(-45deg) translate(-8px, 8px);
+
+  .nav-list {
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background: linear-gradient(180deg, var(--primary-color) 0%, #2d3561 100%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 3rem;
+    gap: 2rem;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
   }
-  
-  .mobile-menu.active .line2 {
+
+  .nav-list.active {
+    right: 0;
+  }
+
+  .nav-list li {
     opacity: 0;
+    animation: none;
+    transform: translateX(50px);
   }
-  
-  .mobile-menu.active .line3 {
-    transform: rotate(45deg) translate(-5px, -7px);
+
+  .nav-list.active li {
+    opacity: 1;
+    animation: slideInLeft 0.4s ease-out forwards;
   }
+
+  .nav-list.active li:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .nav-list.active li:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .nav-list.active li:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+
+  .nav-list li a {
+    color: var(--white);
+    font-size: 1.1rem;
+  }
+
+  .nav-list li a::after {
+    display: none;
+  }
+
+  /* Typography */
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+  }
+
+  /* Sections */
+  #inicio {
+    padding: 2rem 5%;
+    text-align: center;
+  }
+
+  #historia {
+    padding: 2rem 5%;
+  }
+
+  #fotos {
+    padding: 2rem 5%;
+  }
+
+  #contato {
+    padding: 2rem 5%;
+  }
+
+  .container-grid {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+  }
+
+  /* Info Container */
+  .info-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .person-image {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  .person-info {
+    text-align: center;
+  }
+
+  .person-info h3 {
+    font-size: 1.1rem;
+  }
+
+  /* Tabs */
+  .nav-feed {
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    min-width: auto;
+  }
+
+  .tab-content {
+    padding: 1.5rem 1rem;
+  }
+
+  /* Swiper */
+  .swiper {
+    height: 300px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+
+  /* Contact Section */
+  #contato ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  #contato ul li a {
+    width: 100%;
+    display: block;
+    padding: 1rem;
+  }
+
+  .scrollableLorem {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* ===== TABLET STYLES (768px - 991px) ===== */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  nav {
+    padding: 0 7%;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .mobile-menu {
+    display: flex !important;
+  }
+
+  .nav-list {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 60%;
+    height: calc(100vh - 70px);
+    background: linear-gradient(180deg, var(--primary-color) 0%, #2d3561 100%);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 2rem;
+    gap: 1.5rem;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+  }
+
+  .nav-list.active {
+    right: 0;
+  }
+
+  .nav-list li a {
+    color: var(--white);
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  #inicio {
+    padding: 3rem 7%;
+  }
+
+  #historia {
+    padding: 3rem 7%;
+  }
+
+  #fotos {
+    padding: 3rem 7%;
+  }
+
+  #contato {
+    padding: 3rem 7%;
+  }
+
+  .container-grid {
+    padding-left: 7% !important;
+    padding-right: 7% !important;
+  }
+
+  .info-container {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .person-image {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+  }
+
+  .person-info {
+    text-align: center;
+  }
+
+  .swiper {
+    height: 400px;
+  }
+
+  #contato ul {
+    gap: 1.5rem;
+  }
+
+  #contato ul li a {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* ===== MEDIUM SCREENS (992px - 1199px) ===== */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  nav {
+    padding: 0 8%;
+  }
+
+  .container-grid {
+    padding-left: 8% !important;
+    padding-right: 8% !important;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  #inicio {
+    padding: 4rem 8%;
+  }
+
+  #historia {
+    padding: 4rem 8%;
+  }
+
+  #fotos {
+    padding: 4rem 8%;
+  }
+
+  #contato {
+    padding: 4rem 8%;
+  }
+
+  .info-container {
+    gap: 2.5rem;
+  }
+
+  .person-image {
+    width: 280px;
+    height: 280px;
+  }
+
+  .swiper {
+    height: 500px;
+  }
+}
+
+/* ===== EXTRA LARGE SCREENS (1200px+) ===== */
+@media screen and (min-width: 1200px) {
+  nav {
+    padding: 0 10%;
+  }
+
+  .container-grid {
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+  }
+}
+
+/* ===== VERY SMALL DEVICES (max-width: 360px) ===== */
+@media screen and (max-width: 360px) {
+  .logo {
+    font-size: 0.95rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+  }
+
+  .person-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .swiper {
+    height: 250px;
+  }
+
+  .nav-feed {
+    flex-wrap: wrap;
+  }
+
+  .nav-link {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  #contato ul li a {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== LANDSCAPE MODE ===== */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  header {
+    position: sticky;
+  }
+
+  nav {
+    height: 50px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  #inicio,
+  #historia,
+  #fotos,
+  #contato {
+    padding: 1.5rem 5%;
+  }
+
+  .swiper {
+    height: 350px;
+  }
+
+  section {
+    margin: 0;
+  }
+}
+
+/* ===== HIGH DPI SCREENS / RETINA ===== */
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+       screen and (min-resolution: 192dpi) {
+  /* Optimize for retina displays */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  header,
+  footer,
+  .mobile-menu,
+  .swiper,
+  #contato {
+    display: none;
+  }
+
+  section {
+    page-break-inside: avoid;
+    box-shadow: none;
+  }
+}
   
